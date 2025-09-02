@@ -91,7 +91,8 @@
   <string id="hide_ksu_loop_label">隐藏 KSU Loop</string>
   <string id="force_hide_dex2oat_label">强制隐藏 Dex2oat 挂载</string>
   <string id="avc_log_spoofing_label">AVC日志欺骗</string>
-  <string id="emulate_vold_app_data_label">模拟Vold应用数据隔离</string>
+  <string id="disable_webui_bin_update_label">禁用 WebUI 更新用户空间二进制文件</string>
+  <string id="emulate_vold_app_data_label">模拟 Vold 应用数据隔离</string>
   <string id="custom_sus_path_label">自定义SUS路径</string>
   <string id="custom_sus_path_loop_label">自定义SUS路径Loop</string>
   <string id="custom_sus_mount_label">自定义SUS挂载</string>
