@@ -13,10 +13,10 @@ jobs:
   build-and-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout v1.5.2+ branch
+      - name: Checkout current branch
         uses: actions/checkout@v4
         with:
-          ref: v1.5.2+
+          ref: ${{ github.ref_name }}
 
       - name: Update version with git HEAD
         run: |
@@ -27,7 +27,7 @@ jobs:
       - name: Upload release artifact
         uses: actions/upload-artifact@v4
         with:
-          name: release-1.5.2+_${{ env.BUILD_ID }}
+          name: ksu_module_susfs_ci_1.5.2+_${{ env.BUILD_ID }}
           path: |
             ${{ github.workspace }}/**/*
             !${{ github.workspace }}/.git/**
