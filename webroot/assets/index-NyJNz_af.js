@@ -652,6 +652,7 @@ async function Le(s) {
     t = document.getElementById("hide_ksu_loop"),
     d = document.getElementById("force_hide_lsposed"),
     _ = document.getElementById("avc_log_spoofing"),
+    b = document.getElementById("disable_webui_bin_update"),
     m = document.getElementById("emulate_vold_app_data");
   var h = !0;
   const i = s;
@@ -665,6 +666,7 @@ async function Le(s) {
     i.spoof_cmdline == !0 ? (n.checked = "checked") : (n.checked = !1),
     i.hide_loops == !0 ? (t.checked = "checked") : (t.checked = !1),
     i.force_hide_lsposed == !0 ? (d.checked = "checked") : (d.checked = !1),
+    i.disable_webui_bin_update == !0 ? (b.checked = "checked") : (b.checked = !1),
     k < 157
       ? (m.disabled = !0)
       : i.emulate_vold_app_data == !0
@@ -747,6 +749,21 @@ async function Le(s) {
           (i.avc_log_spoofing = !0),
           c("AVC Log Spoofing on! no need to reboot"));
     }),
+    b.addEventListener("click", async function () {
+      i.disable_webui_bin_update == !0
+        ? (await e(
+            `sed -i 's/disable_webui_bin_update=.*/disable_webui_bin_update=0/' ${a}/config.sh`
+          ),
+          await e(`${g} disable_webui_bin_update 0`),
+          (i.disable_webui_bin_update = !1),
+          c("Reboot to take effect"))
+        : (await e(
+            `sed -i 's/disable_webui_bin_update=.*/disable_webui_bin_update=1/' ${a}/config.sh`
+          ),
+          await e(`${g} disable_webui_bin_update 1`),
+          (i.disable_webui_bin_update = !0),
+          c("Reboot to take effect"));
+    }),
     m.addEventListener("click", async function () {
       i.emulate_vold_app_data == !0
         ? (await e(
@@ -761,6 +778,7 @@ async function Le(s) {
           await e(`${g} enable_vold_app_data 1`),
           (i.emulate_vold_app_data = !0),
           c("Reboot to take effect"));
+
     });
 }
 async function $e(s) {
